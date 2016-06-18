@@ -10,12 +10,13 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
-    <TypeScriptToolsVersion>1.0</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
@@ -55,7 +56,39 @@
     <TypeScriptSourceMap>false</TypeScriptSourceMap>
   </PropertyGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="mono.ts" />
+    <TypeScriptCompile Include="System.Collections.Generic.ts" />
+    <TypeScriptCompile Include="System.Collections.ts" />
+    <TypeScriptCompile Include="System.Globalization.ts" />
+    <TypeScriptCompile Include="System.Resources.ts" />
+    <TypeScriptCompile Include="System.Script.ts" />
+    <TypeScriptCompile Include="System.Security.Claims.ts" />
+    <TypeScriptCompile Include="System.Security.Principal.ts" />
+    <TypeScriptCompile Include="System.ts" />
+    <TypeScriptCompile Include="System.Web.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="mono\System.Collections.Generic.js" />
+    <Content Include="mono\System.Collections.js" />
+    <Content Include="mono\System.Globalization.js" />
+    <Content Include="mono\System.js" />
+    <Content Include="mono\System.Resources.js" />
+    <Content Include="mono\System.Script.js" />
+    <Content Include="mono\System.Security.Claims.js" />
+    <Content Include="mono\System.Security.Principal.js" />
+    <Content Include="mono\System.Web.js" />
+    <Content Include="tsconfig.json" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="mono\System.Collections.Generic.js.map" />
+    <Content Include="mono\System.Collections.js.map" />
+    <Content Include="mono\System.Globalization.js.map" />
+    <Content Include="mono\System.js.map" />
+    <Content Include="mono\System.Resources.js.map" />
+    <Content Include="mono\System.Script.js.map" />
+    <Content Include="mono\System.Security.Claims.js.map" />
+    <Content Include="mono\System.Security.Principal.js.map" />
+    <Content Include="mono\System.Web.js.map" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
 </Project>
