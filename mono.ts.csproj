@@ -56,39 +56,48 @@
     <TypeScriptSourceMap>false</TypeScriptSourceMap>
   </PropertyGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="System.Collections.Generic.ts" />
-    <TypeScriptCompile Include="System.Collections.ts" />
-    <TypeScriptCompile Include="System.Globalization.ts" />
-    <TypeScriptCompile Include="System.Resources.ts" />
-    <TypeScriptCompile Include="System.Script.ts" />
-    <TypeScriptCompile Include="System.Security.Claims.ts" />
-    <TypeScriptCompile Include="System.Security.Principal.ts" />
-    <TypeScriptCompile Include="System.ts" />
-    <TypeScriptCompile Include="System.Web.ts" />
+    <TypeScriptCompile Include="dist\System.Collections.d.ts" />
+    <TypeScriptCompile Include="dist\System.Collections.Generic.d.ts" />
+    <TypeScriptCompile Include="dist\System.d.ts" />
+    <TypeScriptCompile Include="dist\System.Globalization.d.ts" />
+    <TypeScriptCompile Include="dist\System.Resources.d.ts" />
+    <TypeScriptCompile Include="dist\System.Script.d.ts" />
+    <TypeScriptCompile Include="dist\System.Security.Claims.d.ts" />
+    <TypeScriptCompile Include="dist\System.Security.Principal.d.ts" />
+    <TypeScriptCompile Include="dist\System.Web.d.ts" />
+    <TypeScriptCompile Include="src\System.Collections.Generic.ts" />
+    <TypeScriptCompile Include="src\System.Collections.ts" />
+    <TypeScriptCompile Include="src\System.Globalization.ts" />
+    <TypeScriptCompile Include="src\System.Resources.ts" />
+    <TypeScriptCompile Include="src\System.Script.ts" />
+    <TypeScriptCompile Include="src\System.Security.Claims.ts" />
+    <TypeScriptCompile Include="src\System.Security.Principal.ts" />
+    <TypeScriptCompile Include="src\System.ts" />
+    <TypeScriptCompile Include="src\System.Web.ts" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="mono\System.Collections.Generic.js" />
-    <Content Include="mono\System.Collections.js" />
-    <Content Include="mono\System.Globalization.js" />
-    <Content Include="mono\System.js" />
-    <Content Include="mono\System.Resources.js" />
-    <Content Include="mono\System.Script.js" />
-    <Content Include="mono\System.Security.Claims.js" />
-    <Content Include="mono\System.Security.Principal.js" />
-    <Content Include="mono\System.Web.js" />
+    <Content Include="dist\System.Collections.Generic.js" />
+    <Content Include="dist\System.Collections.js" />
+    <Content Include="dist\System.Globalization.js" />
+    <Content Include="dist\System.js" />
+    <Content Include="dist\System.Resources.js" />
+    <Content Include="dist\System.Script.js" />
+    <Content Include="dist\System.Security.Claims.js" />
+    <Content Include="dist\System.Security.Principal.js" />
+    <Content Include="dist\System.Web.js" />
     <Content Include="tsconfig.json" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="mono\System.Collections.Generic.js.map" />
-    <Content Include="mono\System.Collections.js.map" />
-    <Content Include="mono\System.Globalization.js.map" />
-    <Content Include="mono\System.js.map" />
-    <Content Include="mono\System.Resources.js.map" />
-    <Content Include="mono\System.Script.js.map" />
-    <Content Include="mono\System.Security.Claims.js.map" />
-    <Content Include="mono\System.Security.Principal.js.map" />
-    <Content Include="mono\System.Web.js.map" />
+    <Content Include="dist\System.Collections.Generic.js.map" />
+    <Content Include="dist\System.Collections.js.map" />
+    <Content Include="dist\System.Globalization.js.map" />
+    <Content Include="dist\System.js.map" />
+    <Content Include="dist\System.Resources.js.map" />
+    <Content Include="dist\System.Script.js.map" />
+    <Content Include="dist\System.Security.Claims.js.map" />
+    <Content Include="dist\System.Security.Principal.js.map" />
+    <Content Include="dist\System.Web.js.map" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
 </Project>
