@@ -21,6 +21,7 @@ namespace System.Collections.Generic {
         Add(key: string, value: any): void;
         Item(key: string): TValue;
         Item(key: string, value: TValue): void;
+        Remove(key: string): boolean;
     }
 
     export class Dictionary<TValue> implements IDictionary<TValue> {
@@ -64,6 +65,18 @@ namespace System.Collections.Generic {
                 }
                 return null;
             }
-        }        
+        }
+
+        Remove(key: string): boolean {
+            for (var i = 0; i < this._list.length; i++) {
+                if (this._list[i].Key === key) {
+                    var removedItem = this._list.splice(i, 1);
+
+                    return removedItem != null;
+                }
+            }
+
+            return false;
+        }
     }
 }
