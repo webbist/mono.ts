@@ -17,6 +17,5 @@
   <files>
     <file src="bin\*.d.ts" target="content/scripts/typings/mono" />
     <file src="bin\*.js" target="content/scripts" />
-    <file src="bin\*.js.map" target="content/scripts" />
   </files>
 </package>
