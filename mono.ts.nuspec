@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>https://github.com/webbist/mono.ts</projectUrl>    
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Package with nuget.</releaseNotes>
+    <copyright>Copyright 2018</copyright>
+    <tags>javascript dotNet</tags>
+  </metadata>
+  <files>
+    <file src="bin\*.d.ts" target="content/scripts/typings/mono" />
+    <file src="bin\*.js" target="content/scripts" />
+    <file src="bin\*.js.map" target="content/scripts" />
+  </files>
+</package>

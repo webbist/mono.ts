@@ -11,38 +11,40 @@
 // either express or implied.
 // see the License for the specific language governing permissions and limitations under the License.
 
-import { Dictionary } from "./System.Collections.Generic";
-import { KeyValuePair } from "./System.Collections";
+/// <reference path="System.Collections.Generic.ts" />
+/// <reference path="System.Collections.ts" />
 
-function GetLocalizedDisplayName(): Dictionary<string> {
-    return new Dictionary<string>([
-        new KeyValuePair<string>("en", "English"),
-        new KeyValuePair<string>("fr", "français"),
-        new KeyValuePair<string>("es", "español")
-    ]);
-}
-
-export class CultureInfo {
-    private static _currentUICulture: CultureInfo = new CultureInfo("en");
-    private static _localizedDisplayName: Dictionary<string> = GetLocalizedDisplayName();
-    private _name: string;
-
-    public static get CurrentUICulture(): CultureInfo {
-        return CultureInfo._currentUICulture;
-    }
-    public static set CurrentUICulture(value: CultureInfo) {
-        CultureInfo._currentUICulture = value;
+namespace System.Globalization {
+    function GetLocalizedDisplayName(): System.Collections.Generic.Dictionary<string> {
+        return new System.Collections.Generic.Dictionary<string>([
+            new System.Collections.KeyValuePair<string>("en", "English"),
+            new System.Collections.KeyValuePair<string>("fr", "français"),
+            new System.Collections.KeyValuePair<string>("es", "español")
+        ]);
     }
 
-    public get DisplayName(): string {
-        return CultureInfo._localizedDisplayName.Item(this._name);
-    }
+    export class CultureInfo {
+        private static _currentUICulture: CultureInfo = new CultureInfo("en");
+        private static _localizedDisplayName: System.Collections.Generic.Dictionary<string> = GetLocalizedDisplayName();
+        private _name: string;
 
-    public get Name(): string {
-        return this._name;
-    }
+        public static get CurrentUICulture(): CultureInfo {
+            return CultureInfo._currentUICulture;
+        }
+        public static set CurrentUICulture(value: CultureInfo) {
+            CultureInfo._currentUICulture = value;
+        }
 
-    public constructor(name: string) {
-        this._name = name;
+        public get DisplayName(): string {
+            return CultureInfo._localizedDisplayName.Item(this._name);
+        }
+
+        public get Name(): string {
+            return this._name;
+        }
+
+        public constructor(name: string) {
+            this._name = name;
+        }
     }
 }

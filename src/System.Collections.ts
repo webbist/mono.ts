@@ -11,24 +11,26 @@
 // either express or implied.
 // see the License for the specific language governing permissions and limitations under the License.
 
-export class KeyValuePair<TValue> {
-    private _key: string;
-    private _value: TValue;
+namespace System.Collections {
+    export class KeyValuePair<TValue> {
+        private _key: string;
+        private _value: TValue;
 
-    get Key(): string {
-        return this._key;
+        get Key(): string {
+            return this._key;
+        }
+
+        get Value(): TValue {
+            return this._value;
+        }
+
+        public constructor(key: string, value: TValue) {
+            this._key = key;
+            this._value = value;
+        }
     }
 
-    get Value(): TValue {
-        return this._value;
+    export interface IIndexable<T> {
+        GetIndex(): Array<T>
     }
-
-    public constructor(key: string, value: TValue) {
-        this._key = key;
-        this._value = value;
-    }
-}
-
-export interface IIndexable<T> {
-    GetIndex(): Array<T>
 }

@@ -11,23 +11,25 @@
 // either express or implied.
 // see the License for the specific language governing permissions and limitations under the License.
 
-import { IPrincipal } from "./System.Security.Principal";
+/// <reference path="System.Security.Principal.ts" />
 
-export class JavaScriptContext {
-    private static _instance: JavaScriptContext;
-    private _user: IPrincipal;
+namespace System.Scripts {
+    export class JavaScriptContext {
+        private static _instance: JavaScriptContext;
+        private _user: System.Security.Principal.IPrincipal;
 
-    static get Current(): JavaScriptContext {
-        if (!JavaScriptContext._instance) {
-            JavaScriptContext._instance = new JavaScriptContext();
+        static get Current(): JavaScriptContext {
+            if (!JavaScriptContext._instance) {
+                JavaScriptContext._instance = new JavaScriptContext();
+            }
+            return JavaScriptContext._instance;
         }
-        return JavaScriptContext._instance;
-    }
 
-    get User(): IPrincipal {
-        return this._user;
-    }
-    set User(value: IPrincipal) {
-        this._user = value;
+        get User(): System.Security.Principal.IPrincipal {
+            return this._user;
+        }
+        set User(value: System.Security.Principal.IPrincipal) {
+            this._user = value;
+        }
     }
 }

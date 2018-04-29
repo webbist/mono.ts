@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -7,16 +7,18 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <OutputPath>bin</OutputPath>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
-    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
@@ -46,25 +48,25 @@
   </ProjectExtensions>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <TypeScriptRemoveComments>True</TypeScriptRemoveComments>
-    <TypeScriptSourceMap>true</TypeScriptSourceMap>
-    <TypeScriptModuleKind>amd</TypeScriptModuleKind>
-    <TypeScriptOutFile>mono.js</TypeScriptOutFile>
+    <TypeScriptSourceMap>True</TypeScriptSourceMap>
+    <TypeScriptModuleKind>None</TypeScriptModuleKind>
+    <TypeScriptOutFile>.\bin\mono.js</TypeScriptOutFile>
     <TypeScriptGeneratesDeclarations>True</TypeScriptGeneratesDeclarations>
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
+    <TypeScriptCompileOnSaveEnabled>False</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptOutDir>
+    </TypeScriptOutDir>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
     <TypeScriptSourceMap>false</TypeScriptSourceMap>
   </PropertyGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="dist\System.Collections.d.ts" />
-    <TypeScriptCompile Include="dist\System.Collections.Generic.d.ts" />
-    <TypeScriptCompile Include="dist\System.d.ts" />
-    <TypeScriptCompile Include="dist\System.Globalization.d.ts" />
-    <TypeScriptCompile Include="dist\System.Resources.d.ts" />
-    <TypeScriptCompile Include="dist\System.Script.d.ts" />
-    <TypeScriptCompile Include="dist\System.Security.Claims.d.ts" />
-    <TypeScriptCompile Include="dist\System.Security.Principal.d.ts" />
-    <TypeScriptCompile Include="dist\System.Web.d.ts" />
     <TypeScriptCompile Include="src\System.Collections.Generic.ts" />
     <TypeScriptCompile Include="src\System.Collections.ts" />
     <TypeScriptCompile Include="src\System.Globalization.ts" />
@@ -76,28 +78,25 @@
     <TypeScriptCompile Include="src\System.Web.ts" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="dist\System.Collections.Generic.js" />
-    <Content Include="dist\System.Collections.js" />
-    <Content Include="dist\System.Globalization.js" />
-    <Content Include="dist\System.js" />
-    <Content Include="dist\System.Resources.js" />
-    <Content Include="dist\System.Script.js" />
-    <Content Include="dist\System.Security.Claims.js" />
-    <Content Include="dist\System.Security.Principal.js" />
-    <Content Include="dist\System.Web.js" />
-    <Content Include="tsconfig.json" />
+    <None Include="nuget.exe" />
+    <None Include="package.cmd" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="dist\System.Collections.Generic.js.map" />
-    <Content Include="dist\System.Collections.js.map" />
-    <Content Include="dist\System.Globalization.js.map" />
-    <Content Include="dist\System.js.map" />
-    <Content Include="dist\System.Resources.js.map" />
-    <Content Include="dist\System.Script.js.map" />
-    <Content Include="dist\System.Security.Claims.js.map" />
-    <Content Include="dist\System.Security.Principal.js.map" />
-    <Content Include="dist\System.Web.js.map" />
+    <Content Include="mono.ts.nuspec">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
 </Project>

@@ -11,51 +11,53 @@
 // either express or implied.
 // see the License for the specific language governing permissions and limitations under the License.
 
-import { CultureInfo } from "./System.Globalization";
-import { Dictionary } from "./System.Collections.Generic";
+/// <reference path="System.Globalization.ts" />
+/// <reference path="System.Collections.Generic.ts" />
 
-export class ResourceManager {
-    private _neutral: string = "neutral";
-    private _resourceSet: Dictionary<Dictionary<string>>;
+namespace System.Resources {
+    export class ResourceManager {
+        private _neutral: string = "neutral";
+        private _resourceSet: System.Collections.Generic.Dictionary<System.Collections.Generic.Dictionary<string>>;
 
-    public constructor(resources?: Dictionary<string>, cultureName?: string) {
-        this._resourceSet = new Dictionary<Dictionary<string>>();
+        public constructor(resources?: System.Collections.Generic.Dictionary<string>, cultureName?: string) {
+            this._resourceSet = new System.Collections.Generic.Dictionary<System.Collections.Generic.Dictionary<string>>();
 
-        if (resources) {
-            this.AddResources(resources, cultureName);
-        }
-    }
-
-    public AddResources(resources: Dictionary<string>, cultureName?: string): void {
-        if (cultureName) {
-            this._resourceSet.Add(cultureName, resources);
-        }
-        else {
-            this._resourceSet.Add(this._neutral, resources);
-        }
-    }
-
-    public GetString(name: string): string;
-    public GetString(name: string, cultureName: string): string;
-    public GetString(name: string, cultureName?: string): string {
-        var resources: Dictionary<string>;
-
-        if (cultureName) {
-            resources = this._resourceSet.Item(cultureName);
-        }
-        else {
-            resources = this._resourceSet.Item(CultureInfo.CurrentUICulture.Name);
+            if (resources) {
+                this.AddResources(resources, cultureName);
+            }
         }
 
-        if (!resources) {
-            resources = this._resourceSet.Item(this._neutral);
+        public AddResources(resources: System.Collections.Generic.Dictionary<string>, cultureName?: string): void {
+            if (cultureName) {
+                this._resourceSet.Add(cultureName, resources);
+            }
+            else {
+                this._resourceSet.Add(this._neutral, resources);
+            }
         }
 
-        if (resources) {
-            return resources.Item(name);
-        }
-        else {
-            return null;
+        public GetString(name: string): string;
+        public GetString(name: string, cultureName: string): string;
+        public GetString(name: string, cultureName?: string): string {
+            var resources: System.Collections.Generic.Dictionary<string>;
+
+            if (cultureName) {
+                resources = this._resourceSet.Item(cultureName);
+            }
+            else {
+                resources = this._resourceSet.Item(System.Globalization.CultureInfo.CurrentUICulture.Name);
+            }
+
+            if (!resources) {
+                resources = this._resourceSet.Item(this._neutral);
+            }
+
+            if (resources) {
+                return resources.Item(name);
+            }
+            else {
+                return null;
+            }
         }
     }
 }

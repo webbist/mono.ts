@@ -1,0 +1,1 @@
+nuget pack mono.ts.csproj -Exclude bin/**/*.dll -Exclude bin/**/*.pdb

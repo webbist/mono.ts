@@ -11,55 +11,59 @@
 // either express or implied.
 // see the License for the specific language governing permissions and limitations under the License.
 
-import { KeyValuePair } from "./System.Collections";
+/// <reference path="System.Collections.ts" />
 
-export interface IDictionary<TValue> {
-    Count: number;
+namespace System.Collections.Generic {
+    export interface IDictionary<TValue> {
+        Count: number;
 
-    Add(item: KeyValuePair<TValue>): void;
-    Add(key: string, value: any): void;
-    Item(key: string): TValue;
-    Item(key: string, value: TValue): void;
-}
-
-export class Dictionary<TValue> implements IDictionary<TValue> {
-    private _list: Array<KeyValuePair<TValue>>;
-
-    get Count(): number {
-        return this._list.length;
+        Add(item: KeyValuePair<TValue>): void;
+        Add(key: string, value: any): void;
+        Item(key: string): TValue;
+        Item(key: string, value: TValue): void;
     }
 
-    public constructor(list: Array<KeyValuePair<TValue>> = new Array<KeyValuePair<TValue>>()) {
-        this._list = list;
-    }
+    export class Dictionary<TValue> implements IDictionary<TValue> {
+        private _list: Array<KeyValuePair<TValue>>;
 
-    Add(first: any, second?: any): void {
-        if (typeof second === "undefined") {
-            this._list.push(<KeyValuePair<TValue>>first);
+        get Count(): number {
+            return this._list.length;
         }
-        else {
-            this._list.push(<KeyValuePair<TValue>>new KeyValuePair(<string>first, second));
-        }
-    }
 
-    Item(key: string, value?: TValue): TValue {
-        if (value) {
-            for (var i = 0; i < this._list.length; i++) {
-                if (this._list[i].Key == key) {
-                    this._list[i].Value = value;
-                }
+        public constructor(list: Array<KeyValuePair<TValue>> = new Array<KeyValuePair<TValue>>()) {
+            this._list = list;
+        }
+
+        Add(first: any, second?: any): void {
+            if (typeof second === "undefined") {
+                this._list.push(<KeyValuePair<TValue>>first);
             }
-
-            this.Add(key, value);
-            return;
-        }
-        else {
-            for (var i = 0; i < this._list.length; i++) {
-                if (this._list[i].Key == key) {
-                    return this._list[i].Value;
-                }
+            else {
+                this._list.push(<KeyValuePair<TValue>>new KeyValuePair(<string>first, second));
             }
-            return null;
         }
+
+        Item(key: string, value?: TValue): TValue {
+            if (value) {
+                for (var i = 0; i < this._list.length; i++) {
+                    if (this._list[i].Key === key) {
+                        this._list[i] = new KeyValuePair(key, value);
+
+                        return;
+                    }
+                }
+
+                this.Add(key, value);
+                return;
+            }
+            else {
+                for (var i = 0; i < this._list.length; i++) {
+                    if (this._list[i].Key === key) {
+                        return this._list[i].Value;
+                    }
+                }
+                return null;
+            }
+        }        
     }
 }

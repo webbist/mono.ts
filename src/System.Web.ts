@@ -11,16 +11,18 @@
 // either express or implied.
 // see the License for the specific language governing permissions and limitations under the License.
 
-export class HttpServerUtility {
-    public static UrlEncode(url: string): string {
-        return encodeURI(url).replace(/[!'()*]/g, function (c) {
-            return '%' + c.charCodeAt(0).toString(16).toUpperCase();
-        });
-    }
+namespace System.Web {
+    export class HttpServerUtility {
+        public static UrlEncode(url: string): string {
+            return encodeURI(url).replace(/[!'()*]/g, function (c) {
+                return '%' + c.charCodeAt(0).toString(16).toUpperCase();
+            });
+        }
 
-    public static UrlPathEncode(path: string): string {
-        return encodeURIComponent(path).replace(/[!'()*]/g, function (c) {
-            return '%' + c.charCodeAt(0).toString(16).toUpperCase();
-        });
+        public static UrlPathEncode(path: string): string {
+            return encodeURIComponent(path).replace(/[!'()*]/g, function (c) {
+                return '%' + c.charCodeAt(0).toString(16).toUpperCase();
+            });
+        }
     }
 }

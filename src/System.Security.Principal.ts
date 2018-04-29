@@ -11,13 +11,15 @@
 // either express or implied.
 // see the License for the specific language governing permissions and limitations under the License.
 
-export interface IIdentity {
-    AuthenticationType: string
-    IsAuthenticated: boolean
-    Name: string
-}
+namespace System.Security.Principal {
+    export interface IIdentity {
+        AuthenticationType: string
+        IsAuthenticated: boolean
+        Name: string
+    }
 
-export interface IPrincipal {
-    Identity: IIdentity
-    IsInRole(role: string): boolean
+    export interface IPrincipal {
+        Identity: IIdentity
+        IsInRole(role: string): boolean
+    }
 }
