@@ -80,6 +80,7 @@
   <ItemGroup>
     <None Include="nuget.exe" />
     <None Include="package.cmd" />
+    <None Include="push.cmd" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="mono.ts.nuspec">

@@ -189,3 +189,4 @@ _Pvt_Extensions/
 ModelManifest.xml
 /.vs/config
 /.vs/mono.ts/v15/Server/sqlite3
+/CredentialProvider.VSS.exe
